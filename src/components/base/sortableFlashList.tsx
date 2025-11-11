@@ -10,7 +10,8 @@ import useTextColor from "@/hooks/useTextColor";
 import rpx from "@/utils/rpx";
 
 
-
+const AUTO_SCROLL_THRESHOLD_RATIO = 0.2;
+const AUTO_SCROLL_MAX_SPEED = 25;
 
 /** 列表项容器 */
 interface ISortableFlashListItemProps {
@@ -115,7 +116,7 @@ export default function SortableFlashList<T extends any = any>(
 
                 // 判断方向 -1: 上滚 1: 下滚  0: 不滚动
                 let direction = 0;
-                const threshold = listLayout.height * 0.2;
+                const threshold = listLayout.height * AUTO_SCROLL_THRESHOLD_RATIO;
                 let speedFactor = 1;
 
                 if (offsetY < threshold) {
@@ -140,7 +141,7 @@ export default function SortableFlashList<T extends any = any>(
                     }
                     listRef.current?.scrollToOffset({
                         animated: false,
-                        offset: -25 * speedFactor + listOffsetRef.current,
+                        offset: -AUTO_SCROLL_MAX_SPEED * speedFactor + listOffsetRef.current,
                     });
                 } else {
                     // 下滚
@@ -150,7 +151,7 @@ export default function SortableFlashList<T extends any = any>(
                     }
                     listRef.current?.scrollToOffset({
                         animated: false,
-                        offset: 25 * speedFactor + listOffsetRef.current,
+                        offset: AUTO_SCROLL_MAX_SPEED * speedFactor + listOffsetRef.current,
                     });
                 }
                 
