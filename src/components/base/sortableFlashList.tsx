@@ -254,6 +254,7 @@ export default function SortableFlashList<T extends any = any>(
                 renderItem={renderItem}
                 estimatedItemSize={estimatedItemSize}
                 CellRendererComponent={renderCellContainer}  
+                disableAutoLayout
                 scrollEnabled={!dragging}
                 scrollEventThrottle={16}
                 onScroll={scrollHandler}
