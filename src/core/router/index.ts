@@ -104,6 +104,9 @@ interface RouterParams extends RouterParamsBase {
         pluginHash?: string;
         sheetInfo: IMusic.IMusicSheetItemBase;
     };
+    "sheet-editor": {
+        sheetType: "local" | "starred";
+    };
 }
 
 /** 路由参数Hook */

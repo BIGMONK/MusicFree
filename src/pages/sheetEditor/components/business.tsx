@@ -7,13 +7,19 @@ import { useNavigation } from "@react-navigation/native";
 import { saveEditingMusicSheet } from "../store/action";
 import Toast from "@/utils/toast";
 import i18n from "@/core/i18n";
+import { useParams } from "@/core/router";
 
 export default function Business() {
+    const { sheetType } = useParams<"sheet-editor">();
     const selectedSheetType = useAtomValue(sheetTypeAtom);
     const setEditingMusicSheetAtom = useSetAtom(editingMusicSheetAtom);
     const setMusicSheetChangedAtom = useSetAtom(musicSheetChangedAtom);
     const navigation = useNavigation();
     const doubleConfirmRef = useRef(false);
+
+    useEffect(() => {
+        getDefaultStore().set(sheetTypeAtom, sheetType);
+    }, [sheetType]);
 
     useEffect(() => {
         const sheets = selectedSheetType === "starred" ? MusicSheet.getStarredSheets() : MusicSheet.getSheets().slice(1);

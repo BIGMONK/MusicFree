@@ -12,6 +12,7 @@ import { ImgAsset } from "@/constants/assetsConst";
 import { localPluginPlatform } from "@/constants/commonConst";
 import Checkbox from "@/components/base/checkbox";
 import useColors from "@/hooks/useColors";
+import Empty from "@/components/base/empty";
 
 
 interface ISheetEditorItemProps {
@@ -110,7 +111,7 @@ export default function SheetList() {
                     } (${t("musicSheetEditor.selectSheetCount", { count: selectedItems.length })})`}
                 </TextButton>
             </View>
-            <SortableFlashList 
+            {editingSheetList.length === 0 ? <Empty /> : <SortableFlashList 
                 activeBackgroundColor={colors.placeholder}
                 estimatedItemSize={ListItem.Size.big}
                 data={editingSheetList} 
@@ -119,8 +120,7 @@ export default function SheetList() {
                     setEditingMusicList(newData);
                     setSheetChanged(true);
                 }}
-                
-            />
+            />}
         </>
     );
 }

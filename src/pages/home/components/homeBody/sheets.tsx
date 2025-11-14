@@ -118,7 +118,9 @@ export default function Sheets() {
                             }],
                             onPress(item) {
                                 if (item.value === "manageSheets") {
-                                    navigate(ROUTE_PATH.SHEET_EDITOR);
+                                    navigate(ROUTE_PATH.SHEET_EDITOR, {
+                                        sheetType: index === 0 ? "local" : "starred",
+                                    });
                                 } else if (item.value === "importSheets") {
                                     showPanel("ImportMusicSheet");
                                 }
