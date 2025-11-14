@@ -20,11 +20,9 @@ export default function () {
         <>
             <View
                 style={[
-                    style.wrapper,
+                    styles.wrapper,
                     orientation === "horizontal"
-                        ? {
-                            marginTop: 0,
-                        }
+                        ? styles.marginTop0
                         : null,
                 ]}>
                 <Icon
@@ -79,7 +77,7 @@ export default function () {
     );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     wrapper: {
         width: "100%",
         marginTop: rpx(36),
@@ -87,5 +85,8 @@ const style = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
+    },
+    marginTop0: {
+        marginTop: 0,
     },
 });
