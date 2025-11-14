@@ -325,7 +325,6 @@
     "toast.logCleared": "日志已清空",
     "toast.noFloatWindowPermission": "无悬浮窗权限",
     "toast.folderNotExistOrNoPermission": "文件夹不存在或无权限",
-    "toast.appliedChange": "已保存修改",
     "musicQuality.low": "低音质",
     "musicQuality.standard": "标准音质",
     "musicQuality.high": "高音质",
