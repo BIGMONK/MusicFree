@@ -2,6 +2,7 @@ import Empty from "@/components/base/empty";
 import IconButton from "@/components/base/iconButton";
 import ListItem from "@/components/base/listItem";
 import ThemeText from "@/components/base/themeText";
+import { showDialog } from "@/components/dialogs/useDialog";
 import { showPanel } from "@/components/panels/usePanel";
 import { ImgAsset } from "@/constants/assetsConst";
 import { localPluginPlatform } from "@/constants/commonConst";
@@ -10,6 +11,7 @@ import MusicSheet, { useSheetsBase, useStarredSheets } from "@/core/musicSheet";
 import { ROUTE_PATH, useNavigate } from "@/core/router";
 import useColors from "@/hooks/useColors";
 import rpx from "@/utils/rpx";
+import Toast from "@/utils/toast";
 import { FlashList } from "@shopify/flash-list";
 import React, { useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
@@ -149,6 +151,32 @@ export default function Sheets() {
                                         sheetInfo: sheet,
                                     });
                                 }
+                            }}
+                            onLongPress={() => {
+                                if (isLocalSheet && sheet.id === MusicSheet.defaultSheet.id) {
+                                    return;
+                                }
+                                showDialog("SimpleDialog", {
+                                    title: i18n.t("dialog.deleteSheetTitle"),
+                                    content: i18n.t("dialog.deleteSheetContent", {
+                                        name: sheet.title,
+                                    }),
+                                    okText: i18n.t("common.delete"),
+                                    cancelText: i18n.t("common.cancel"),
+                                    onOk: async () => {
+                                        if (isLocalSheet) {
+                                            await MusicSheet.removeSheet(
+                                                sheet.id,
+                                            );
+                                            Toast.success(t("toast.deleteSuccess"));
+                                        } else {
+                                            await MusicSheet.unstarMusicSheet(
+                                                sheet,
+                                            );
+                                            Toast.success(t("toast.hasUnstarred"));
+                                        }
+                                    },
+                                });
                             }}
                         >
                             <ListItem.ListItemImage

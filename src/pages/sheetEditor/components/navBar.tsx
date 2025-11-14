@@ -43,7 +43,6 @@ export default function NavBar() {
 
     return (
         <AppBar contentStyle={styles.navBarContentStyle}
-        
             actionComponent={<IconButton
                 name="save-outline"
                 sizeType="normal"
