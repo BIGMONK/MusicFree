@@ -135,6 +135,7 @@ class TrackPlayer extends EventEmitter<{
             this.configService.getConfig("basic.defaultPlayQuality") ||
             "standard";
 
+        ReactNativeTrackPlayer.setVolume(1);
         // 状态恢复
         if (rate) {
             ReactNativeTrackPlayer.setRate(+rate / 100);
