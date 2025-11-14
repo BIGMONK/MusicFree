@@ -51,7 +51,7 @@ export default function NavBar() {
                 onPress={() => {
                     if (sheetChanged) {
                         saveEditingMusicSheet();
-                        Toast.success(t("toast.appliedChange"));
+                        Toast.success(t("toast.saveSuccess"));
                     }
                 }}
             />}

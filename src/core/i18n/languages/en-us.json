@@ -325,7 +325,6 @@
     "toast.logCleared": "Logs cleared",
     "toast.noFloatWindowPermission": "No float window permission",
     "toast.folderNotExistOrNoPermission": "Folder doesn't exist or no permission",
-    "toast.appliedChange": "Changes applied",
     "musicQuality.low": "Low Quality",
     "musicQuality.standard": "Standard Quality",
     "musicQuality.high": "High Quality",

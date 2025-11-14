@@ -1,38 +1,29 @@
-import { getDefaultStore, useAtomValue, useSetAtom } from "jotai";
-import { editingMusicSheetAtom, musicSheetChangedAtom, sheetTypeAtom } from "../store/atom";
-import { useEffect, useRef } from "react";
-import MusicSheet from "@/core/musicSheet";
-import { showDialog } from "@/components/dialogs/useDialog";
-import { useNavigation } from "@react-navigation/native";
-import { saveEditingMusicSheet } from "../store/action";
-import Toast from "@/utils/toast";
-import i18n from "@/core/i18n";
 import { useParams } from "@/core/router";
+import { getDefaultStore, useSetAtom } from "jotai";
+import { useEffect, useRef } from "react";
+import { editingMusicListAtom, musicListChangedAtom } from "../store/atom";
+import { showDialog } from "@/components/dialogs/useDialog";
+import i18n from "@/core/i18n";
+import { useNavigation } from "@react-navigation/native";
+import Toast from "@/utils/toast";
+import { saveEditingMusicList } from "../store/action";
 
 export default function Business() {
-    const { sheetType } = useParams<"sheet-editor">();
-    const selectedSheetType = useAtomValue(sheetTypeAtom);
-    const setEditingMusicSheetAtom = useSetAtom(editingMusicSheetAtom);
-    const setMusicSheetChangedAtom = useSetAtom(musicSheetChangedAtom);
-    const navigation = useNavigation();
+    const { musicSheet, musicList } = useParams<"music-list-editor">();
     const doubleConfirmRef = useRef(false);
+    const navigation = useNavigation();
+
+    const setEditingMusicList = useSetAtom(editingMusicListAtom);
+    const setMusicListChanged = useSetAtom(musicListChangedAtom);
 
     useEffect(() => {
-        getDefaultStore().set(sheetTypeAtom, sheetType);
-    }, [sheetType]);
+        setEditingMusicList(
+            (musicList ?? []).map(_ => ({ musicItem: _, checked: false })),
+        );
 
-    useEffect(() => {
-        const sheets = selectedSheetType === "starred" ? MusicSheet.getStarredSheets() : MusicSheet.getSheets().slice(1);
-        setEditingMusicSheetAtom(sheets.map(it => ({
-            checked: false,
-            musicSheetItem: it,
-        })));
-    }, [selectedSheetType]);
-
-
-    useEffect(() => {
         const navigationBackHandler = (e) => {
-            if (e.data.action.type === "GO_BACK" && !doubleConfirmRef.current && getDefaultStore().get(musicSheetChangedAtom)) {
+            console.log("back!!");
+            if (e.data.action.type === "GO_BACK" && !doubleConfirmRef.current && getDefaultStore().get(musicListChangedAtom)) {
                 e.preventDefault();
                 showDialog("SimpleDialog", {
                     "title": i18n.t("dialog.simpleDialog.hasUnsavedChange.title"),
@@ -40,9 +31,11 @@ export default function Business() {
                     okText: i18n.t("common.save"),
                     cancelText: i18n.t("common.notSave"),
                     onOk() {
-                        saveEditingMusicSheet();
+                        if (musicSheet?.id) {
+                            saveEditingMusicList(musicSheet.id);
+                            Toast.success(i18n.t("toast.saveSuccess"));
+                        }
                         doubleConfirmRef.current = true;
-                        Toast.success(i18n.t("toast.saveSuccess"));
                         navigation.goBack();
                     },
                     onCancel() {
@@ -58,8 +51,8 @@ export default function Business() {
         navigation.addListener("beforeRemove", navigationBackHandler);
 
         return () => {
-            setEditingMusicSheetAtom([]);
-            setMusicSheetChangedAtom(false);
+            setEditingMusicList([]);
+            setMusicListChanged(false);
             navigation.removeListener("beforeRemove", navigationBackHandler);
         };
     }, []);

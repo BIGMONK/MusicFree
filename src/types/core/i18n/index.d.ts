@@ -393,7 +393,6 @@ export interface ILanguageData {
     "toast.logCleared": string; // 日志已清空
     "toast.noFloatWindowPermission": string; // 无悬浮窗权限
     "toast.folderNotExistOrNoPermission": string; // 文件夹不存在或无权限
-    "toast.appliedChange": string; // 已应用修改
     
     // 音质相关
     "musicQuality.low": string; // 低音质
