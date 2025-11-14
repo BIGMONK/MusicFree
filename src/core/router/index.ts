@@ -46,6 +46,8 @@ export const ROUTE_PATH = {
     SET_CUSTOM_THEME: "set-custom-theme",
     /** 权限管理 */
     PERMISSIONS: "permissions",
+    /** 歌单编辑 */
+    SHEET_EDITOR: "sheet-editor",
 } as const;
 
 type ValueOf<T> = T[keyof T];

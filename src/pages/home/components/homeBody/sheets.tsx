@@ -2,20 +2,18 @@ import Empty from "@/components/base/empty";
 import IconButton from "@/components/base/iconButton";
 import ListItem from "@/components/base/listItem";
 import ThemeText from "@/components/base/themeText";
-import { showDialog } from "@/components/dialogs/useDialog";
 import { showPanel } from "@/components/panels/usePanel";
 import { ImgAsset } from "@/constants/assetsConst";
 import { localPluginPlatform } from "@/constants/commonConst";
-import { useI18N } from "@/core/i18n";
+import i18n, { useI18N } from "@/core/i18n";
 import MusicSheet, { useSheetsBase, useStarredSheets } from "@/core/musicSheet";
 import { ROUTE_PATH, useNavigate } from "@/core/router";
 import useColors from "@/hooks/useColors";
 import rpx from "@/utils/rpx";
-import Toast from "@/utils/toast";
 import { FlashList } from "@shopify/flash-list";
 import React, { useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { Pressable } from "react-native-gesture-handler";
 
 export default function Sheets() {
     const [index, setIndex] = useState(0);
@@ -39,7 +37,7 @@ export default function Sheets() {
     return (
         <>
             <View style={styles.subTitleContainer}>
-                <TouchableWithoutFeedback
+                <Pressable
                     style={styles.tabContainer}
                     accessible
                     accessibilityLabel={t("home.myPlaylistsCount.a11y", {
@@ -65,8 +63,8 @@ export default function Sheets() {
                         {" "}
                         ({allSheets.length})
                     </ThemeText>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback
+                </Pressable>
+                <Pressable
                     style={styles.tabContainer}
                     accessible
                     accessibilityLabel={t("home.starredPlaylistsCount.a11y", {
@@ -92,7 +90,7 @@ export default function Sheets() {
                         {" "}
                         ({staredSheets.length})
                     </ThemeText>
-                </TouchableWithoutFeedback>
+                </Pressable>
                 <View style={styles.more}>
                     <IconButton
                         name="plus"
@@ -103,14 +101,28 @@ export default function Sheets() {
                             showPanel("CreateMusicSheet");
                         }}
                     />
-                    <IconButton
-                        name="inbox-arrow-down"
-                        sizeType="normal"
-                        accessibilityLabel={t("home.importPlaylist.a11y")}
-                        onPress={() => {
-                            showPanel("ImportMusicSheet");
-                        }}
-                    />
+                    <IconButton name='ellipsis-vertical' sizeType="normal" onPress={() => {
+                        showPanel("SimpleSelect", {
+                            header: i18n.t("home.playlistManagement.a11y"),
+                            height: rpx(360),
+                            candidates: [{
+                                title: i18n.t("home.managePlaylists.a11y"),
+                                icon: "pencil-square",
+                                value: "manageSheets",
+                            }, {
+                                title: i18n.t("home.importPlaylist.a11y"),
+                                icon: "inbox-arrow-down",
+                                value: "importSheets",
+                            }],
+                            onPress(item) {
+                                if (item.value === "manageSheets") {
+                                    navigate(ROUTE_PATH.SHEET_EDITOR);
+                                } else if (item.value === "importSheets") {
+                                    showPanel("ImportMusicSheet");
+                                }
+                            },
+                        });
+                    }} />
                 </View>
             </View>
             <FlashList
@@ -122,8 +134,6 @@ export default function Sheets() {
                     const isLocalSheet = !(
                         sheet.platform && sheet.platform !== localPluginPlatform
                     );
-
-
                     return (
                         <ListItem
                             key={`${sheet.id}`}
@@ -139,7 +149,8 @@ export default function Sheets() {
                                         sheetInfo: sheet,
                                     });
                                 }
-                            }}>
+                            }}
+                        >
                             <ListItem.ListItemImage
                                 uri={sheet.coverImg ?? sheet.artwork}
                                 fallbackImg={ImgAsset.albumDefault}
@@ -157,33 +168,6 @@ export default function Sheets() {
                                         : `${sheet.artist ?? ""}`
                                 }
                             />
-                            {sheet.id !== MusicSheet.defaultSheet.id ? (
-                                <ListItem.ListItemIcon
-                                    position="right"
-                                    icon="trash-outline"
-                                    onPress={() => {
-                                        showDialog("SimpleDialog", {
-                                            title: t("dialog.deleteSheetTitle"),
-                                            content: t("dialog.deleteSheetContent", {
-                                                name: sheet.title,
-                                            }),
-                                            onOk: async () => {
-                                                if (isLocalSheet) {
-                                                    await MusicSheet.removeSheet(
-                                                        sheet.id,
-                                                    );
-                                                    Toast.success(t("toast.deleteSuccess"));
-                                                } else {
-                                                    await MusicSheet.unstarMusicSheet(
-                                                        sheet,
-                                                    );
-                                                    Toast.success(t("toast.hasUnstarred"));
-                                                }
-                                            },
-                                        });
-                                    }}
-                                />
-                            ) : null}
                         </ListItem>
                     );
                 }}
@@ -209,7 +193,7 @@ const styles = StyleSheet.create({
     },
 
     tabText: {
-        lineHeight: rpx(64),
+        lineHeight: rpx(60),
     },
     selectTabText: {
         borderBottomWidth: rpx(6),

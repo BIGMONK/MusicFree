@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 import rpx from "@/utils/rpx";
-import Button from "@/components/base/textButton.tsx";
+import TextButton from "@/components/base/textButton.tsx";
 import { useAtom } from "jotai";
 import { editingMusicListAtom, musicListChangedAtom } from "../store/atom";
 import Toast from "@/utils/toast";
@@ -30,7 +30,7 @@ export default function Body() {
     return (
         <HorizontalSafeAreaView style={globalStyle.flex1}>
             <View style={style.header}>
-                <Button
+                <TextButton
                     onPress={() => {
                         if (
                             selectedItems.length !== editingMusicList.length &&
@@ -51,13 +51,13 @@ export default function Body() {
                             );
                         }
                     }}>
-                    {`${selectedItems.length !== editingMusicList.length &&
-                        editingMusicList.length
+                    {`${((selectedItems.length !== editingMusicList.length &&
+                        editingMusicList.length) || !editingMusicList.length)
                         ? t("common.selectAll")
                         : t("common.unselectAll")
                     } (${t("musicListEditor.selectMusicCount", { count: selectedItems.length })})`}
-                </Button>
-                <Button
+                </TextButton>
+                <TextButton
                     fontColor={
                         musicListChanged && musicSheet?.id
                             ? "primary"
@@ -85,7 +85,7 @@ export default function Body() {
                         }
                     }}>
                     {t("common.save")}
-                </Button>
+                </TextButton>
             </View>
             <MusicList />
         </HorizontalSafeAreaView>

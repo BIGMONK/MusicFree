@@ -34,8 +34,8 @@ export default function Bottom() {
 
     function resetSelectedIndices() {
         setEditingMusicList(
-            editingMusicList.map(_ => ({
-                musicItem: _.musicItem,
+            editingMusicList.map(it => ({
+                musicItem: it.musicItem,
                 checked: false,
             })),
         );

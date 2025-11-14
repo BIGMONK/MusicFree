@@ -12,6 +12,7 @@ export interface ILanguageData {
     "common.selectAll": string; // 全选
     "common.unselectAll": string; // 全不选
     "common.save": string; // 保存
+    "common.notSave": string; // 不保存
     "common.download": string; // 下载
     "common.play": string; // 播放
     "common.delete": string; // 删除
@@ -67,6 +68,8 @@ export interface ILanguageData {
     "home.myPlaylists": string; // 我的歌单
     "home.starredPlaylists": string; // 我喜欢的歌单
     "home.newPlaylist.a11y": string; // 新建歌单
+    "home.managePlaylists.a11y": string; // 管理歌单
+    "home.playlistManagement.a11y": string; // 歌单管理
     "home.importPlaylist.a11y": string; // 导入歌单
     "home.myPlaylistsCount.a11y": string; // 我的歌单数量
     "home.starredPlaylistsCount.a11y": string; // 我喜欢的歌单数量
@@ -107,6 +110,7 @@ export interface ILanguageData {
     "musicListEditor.selectMusicCount": string; // 选择的音乐数量
     "musicListEditor.addToNextPlay": string; // 添加到下一曲
     "musicListEditor.addToSheet": string; // 添加到歌单
+    "musicSheetEditor.selectSheetCount": string; // 选择的歌单数量
 
     // 权限设置相关
     "permissionSetting.title": string; // 权限设置
@@ -389,6 +393,7 @@ export interface ILanguageData {
     "toast.logCleared": string; // 日志已清空
     "toast.noFloatWindowPermission": string; // 无悬浮窗权限
     "toast.folderNotExistOrNoPermission": string; // 文件夹不存在或无权限
+    "toast.appliedChange": string; // 已应用修改
     
     // 音质相关
     "musicQuality.low": string; // 低音质
@@ -423,6 +428,8 @@ export interface ILanguageData {
     "dialog.markdownDialog.openExternalLink": string; // Markdown对话框打开外部链接
     "dialog.markdownDialog.clickToShowImage": string; // 点击展示图片
     "dialog.markdownDialog.loadFailed": string; // 图片加载失败
+    "dialog.simpleDialog.hasUnsavedChange.title": string; // 未保存的更改
+    "dialog.simpleDialog.hasUnsavedChange.content": string; // 未保存的更改提示
 
     // 面板相关 - 播放列表
     "panel.playList.title": string; // 播放列表

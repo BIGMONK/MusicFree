@@ -61,6 +61,7 @@ import PowerOutlineIcon from "@/assets/icons/power-outline.svg";
 import QuestionMarkCircleIcon from "@/assets/icons/question-mark-circle.svg";
 import RepeatSong1Icon from "@/assets/icons/repeat-song-1.svg";
 import RepeatSongIcon from "@/assets/icons/repeat-song.svg";
+import SaveOutlineIcon from "@/assets/icons/save-outline.svg";
 import ShareIcon from "@/assets/icons/share.svg";
 import ShieldKeyholeOutlineIcon from "@/assets/icons/shield-keyhole-outline.svg";
 import ShuffleIcon from "@/assets/icons/shuffle.svg";
@@ -136,6 +137,7 @@ export type IIconName =
     | "question-mark-circle"
     | "repeat-song-1"
     | "repeat-song"
+    | "save-outline"
     | "share"
     | "shield-keyhole-outline"
     | "shuffle"
@@ -218,6 +220,7 @@ const iconMap = {
     "question-mark-circle": QuestionMarkCircleIcon,
     "repeat-song-1": RepeatSong1Icon,
     "repeat-song": RepeatSongIcon,
+    "save-outline": SaveOutlineIcon,
     share: ShareIcon,
     "shield-keyhole-outline": ShieldKeyholeOutlineIcon,
     shuffle: ShuffleIcon,
