@@ -1,4 +1,3 @@
-import repeatModeConst from "@/constants/repeatModeConst";
 import rpx from "@/utils/rpx";
 import React from "react";
 import { InteractionManager, StyleSheet, View } from "react-native";
@@ -9,14 +8,13 @@ import TrackPlayer, { useMusicState, useRepeatMode } from "@/core/trackPlayer";
 import useOrientation from "@/hooks/useOrientation";
 import delay from "@/utils/delay";
 import { musicIsPaused } from "@/utils/trackUtils";
+import { MusicRepeatModeInfo } from "@/constants/trackPlayerConst";
 
 export default function () {
     const repeatMode = useRepeatMode();
     const musicState = useMusicState();
 
     const orientation = useOrientation();
-
-    console.log(repeatMode, repeatModeConst[repeatMode]);
 
     return (
         <>
@@ -31,7 +29,7 @@ export default function () {
                 ]}>
                 <Icon
                     color={"white"}
-                    name={repeatModeConst[repeatMode].icon}
+                    name={MusicRepeatModeInfo[repeatMode].icon}
                     size={rpx(56)}
                     onPress={async () => {
                         InteractionManager.runAfterInteractions(async () => {

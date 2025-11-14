@@ -4,7 +4,6 @@ import {
     sortIndexSymbol,
     timeStampSymbol,
 } from "@/constants/commonConst";
-import { MusicRepeatMode } from "@/constants/repeatModeConst";
 import delay from "@/utils/delay";
 import getUrlExt from "@/utils/getUrlExt";
 import { errorLog, trace } from "@/utils/log";
@@ -31,7 +30,7 @@ import ReactNativeTrackPlayer, {
 } from "react-native-track-player";
 import LocalMusicSheet from "../localMusicSheet";
 
-import { TrackPlayerEvents } from "@/core.defination/trackPlayer";
+import { MusicRepeatMode, TrackPlayerEvents } from "@/constants/trackPlayerConst";
 import type { IAppConfig } from "@/types/core/config";
 import type { IMusicHistory } from "@/types/core/musicHistory";
 import { ITrackPlayer } from "@/types/core/trackPlayer/index";
