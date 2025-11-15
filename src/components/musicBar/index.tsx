@@ -22,7 +22,7 @@ function CircularPlayBtn() {
 
     if (isBuffering) {
         return <View style={styles.bufferingContainer}>
-            <ActivityIndicator size="large" color={colors.musicBarText} />
+            <ActivityIndicator size={rpx(52)} color={colors.musicBarText} />
         </View>;
     }
 
