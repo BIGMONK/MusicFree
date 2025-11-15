@@ -8826,7 +8826,7 @@ react-native-get-random-values@^1.11.0:
   dependencies:
     fast-base64-decode "^1.0.0"
 
-react-native-image-colors@^2.4.0:
+react-native-image-colors@2.5:
   version "2.5.0"
   resolved "https://registry.npmmirror.com/react-native-image-colors/-/react-native-image-colors-2.5.0.tgz#f354dcc5f80f88f004f3a0fdfe2c3e271adeefbd"
   integrity sha512-3zSDgNj5HaZ0PDWaXkc4BpWpZRM5N4gBsoPC7DBfM/+op69Yvwbc0S1T7CnxBWbvShtOvRE+b2BUBadVn+6z/g==

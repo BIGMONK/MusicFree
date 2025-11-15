@@ -22,7 +22,6 @@ export default function Business() {
         );
 
         const navigationBackHandler = (e) => {
-            console.log("back!!");
             if (e.data.action.type === "GO_BACK" && !doubleConfirmRef.current && getDefaultStore().get(musicListChangedAtom)) {
                 e.preventDefault();
                 showDialog("SimpleDialog", {
