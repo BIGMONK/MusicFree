@@ -202,6 +202,10 @@ export default function SortableFlashList<T extends any = any>(
             const offsetY = listOffsetRef.current + draggingElementOffsetValue.value + itemHeightValue.value / 2;
             const toIndex = Math.min(Math.max(Math.floor(offsetY / itemHeightValue.value), 0), data.length - 1);
 
+            if (fromIndex === toIndex) {
+                // 没有变化 直接返回
+                return;
+            }
             const cpyData = [...data];
             const newData = cpyData.slice(0, fromIndex).concat(cpyData.slice(fromIndex + 1));
             newData.splice(toIndex, 0, cpyData[fromIndex]);
