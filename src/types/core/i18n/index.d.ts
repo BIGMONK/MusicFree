@@ -366,6 +366,14 @@ export interface ILanguageData {
     "basicSettings.developer.devLog": string; // 调试面板
     "basicSettings.developer.viewErrorLog": string; // 查看错误日志
     "basicSettings.developer.clearLog": string; // 清空日志
+
+    // 编辑歌单信息弹窗
+    "editMusicSheetInfo.title": string; // 编辑歌单信息
+    "editMusicSheetInfo.changeCoverImageButton": string; // 更换封面
+    "editMusicSheetInfo.resetCoverImageButton": string; // 恢复默认
+    "editMusicSheetInfo.sheetName": string; // 歌单名
+    "editMusicSheetInfo.changeSheetName": string; // 修改歌单名
+    "editMusicSheetInfo.toast.success": string; // 更新歌单信息成功
     
     // 对话框相关 - 缓存设置
     "dialog.setCacheTitle": string; // 设置缓存
@@ -450,9 +458,8 @@ export interface ILanguageData {
     "panel.associateLrc.toast.fail": string; // 关联歌词失败
     "panel.associateLrc.toast.unlinkSuccess": string; // 取消关联歌词成功
     "panel.createMusicSheet.title": string; // 新建歌单
-    "panel.editMusicSheetInfo.title": string; // 编辑歌单信息
-    "panel.editMusicSheetInfo.sheetName": string; // 歌单名
-    "panel.editMusicSheetInfo.toast.updateSuccess": string; // 更新歌单信息成功    // 面板相关 - 图片查看器
+    
+    // 面板相关 - 图片查看器
     "panel.imageViewer.saveImage": string; // 保存图片
     "panel.imageViewer.saveImageSuccess": string; // 图片已保存
     "panel.imageViewer.saveImageFail": string; // 保存图片失败

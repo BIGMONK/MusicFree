@@ -18,6 +18,7 @@ import ChatBubbleOvalLeftEllipsisIcon from "@/assets/icons/chat-bubble-oval-left
 import CheckCircleOutlineIcon from "@/assets/icons/check-circle-outline.svg";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import CheckIcon from "@/assets/icons/check.svg";
+import ChevronRightIcon from "@/assets/icons/chevron-right.svg";
 import CircleStackIcon from "@/assets/icons/circle-stack.svg";
 import ClockOutlineIcon from "@/assets/icons/clock-outline.svg";
 import CodeBracketSquareIcon from "@/assets/icons/code-bracket-square.svg";
@@ -52,6 +53,7 @@ import PauseCircleOutlineIcon from "@/assets/icons/pause-circle-outline.svg";
 import PauseIcon from "@/assets/icons/pause.svg";
 import PencilOutlineIcon from "@/assets/icons/pencil-outline.svg";
 import PencilSquareIcon from "@/assets/icons/pencil-square.svg";
+import PhotoIcon from "@/assets/icons/photo.svg";
 import PlayCircleOutlineIcon from "@/assets/icons/play-circle-outline.svg";
 import PlayCircleIcon from "@/assets/icons/play-circle.svg";
 import PlayIcon from "@/assets/icons/play.svg";
@@ -61,6 +63,7 @@ import PowerOutlineIcon from "@/assets/icons/power-outline.svg";
 import QuestionMarkCircleIcon from "@/assets/icons/question-mark-circle.svg";
 import RepeatSong1Icon from "@/assets/icons/repeat-song-1.svg";
 import RepeatSongIcon from "@/assets/icons/repeat-song.svg";
+import ResetLeftLineIcon from "@/assets/icons/reset-left-line.svg";
 import SaveOutlineIcon from "@/assets/icons/save-outline.svg";
 import ShareIcon from "@/assets/icons/share.svg";
 import ShieldKeyholeOutlineIcon from "@/assets/icons/shield-keyhole-outline.svg";
@@ -94,6 +97,7 @@ export type IIconName =
     | "check-circle-outline"
     | "check-circle"
     | "check"
+    | "chevron-right"
     | "circle-stack"
     | "clock-outline"
     | "code-bracket-square"
@@ -128,6 +132,7 @@ export type IIconName =
     | "pause"
     | "pencil-outline"
     | "pencil-square"
+    | "photo"
     | "play-circle-outline"
     | "play-circle"
     | "play"
@@ -137,6 +142,7 @@ export type IIconName =
     | "question-mark-circle"
     | "repeat-song-1"
     | "repeat-song"
+    | "reset-left-line"
     | "save-outline"
     | "share"
     | "shield-keyhole-outline"
@@ -177,6 +183,7 @@ const iconMap = {
     "check-circle-outline": CheckCircleOutlineIcon,
     "check-circle": CheckCircleIcon,
     check: CheckIcon,
+    "chevron-right": ChevronRightIcon,
     "circle-stack": CircleStackIcon,
     "clock-outline": ClockOutlineIcon,
     "code-bracket-square": CodeBracketSquareIcon,
@@ -211,6 +218,7 @@ const iconMap = {
     pause: PauseIcon,
     "pencil-outline": PencilOutlineIcon,
     "pencil-square": PencilSquareIcon,
+    photo: PhotoIcon,
     "play-circle-outline": PlayCircleOutlineIcon,
     "play-circle": PlayCircleIcon,
     play: PlayIcon,
@@ -220,6 +228,7 @@ const iconMap = {
     "question-mark-circle": QuestionMarkCircleIcon,
     "repeat-song-1": RepeatSong1Icon,
     "repeat-song": RepeatSongIcon,
+    "reset-left-line": ResetLeftLineIcon,
     "save-outline": SaveOutlineIcon,
     share: ShareIcon,
     "shield-keyhole-outline": ShieldKeyholeOutlineIcon,
