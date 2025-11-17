@@ -307,6 +307,7 @@
     "editMusicSheetInfo.sheetName": "Playlist Name",
     "editMusicSheetInfo.changeSheetName": "Rename Playlist",
     "editMusicSheetInfo.toast.success": "Playlist info updated successfully~",
+    "editMusicSheetInfo.toast.defaultSheetRenameFail": "Default playlist name can't be changed~",
     "dialog.loading.reinitializeTrackPlayer": "Initializing track player...",
     "dialog.setCacheTitle": "Set Cache",
     "dialog.setCachePlaceholder": "Enter cache limit, 100M-8192M, unit: M",

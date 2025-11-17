@@ -374,6 +374,7 @@ export interface ILanguageData {
     "editMusicSheetInfo.sheetName": string; // 歌单名
     "editMusicSheetInfo.changeSheetName": string; // 修改歌单名
     "editMusicSheetInfo.toast.success": string; // 更新歌单信息成功
+    "editMusicSheetInfo.toast.defaultSheetRenameFail": string; // 默认歌单名称不可修改
     
     // 对话框相关 - 缓存设置
     "dialog.setCacheTitle": string; // 设置缓存

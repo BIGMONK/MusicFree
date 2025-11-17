@@ -83,6 +83,10 @@ export default function EditMusicSheetInfo() {
     };
 
     const changeSheetTitleHandler = () => {
+        if (musicSheet.id === MusicSheet.defaultSheet.id) {
+            Toast.warn(t("editMusicSheetInfo.toast.defaultSheetRenameFail"));
+            return;
+        }
         showPanel("SimpleInput", {
             title: t("editMusicSheetInfo.changeSheetName"),
             placeholder: title,

@@ -307,6 +307,7 @@
     "editMusicSheetInfo.sheetName": "歌单名",
     "editMusicSheetInfo.changeSheetName": "修改歌单名",
     "editMusicSheetInfo.toast.success": "更新歌单信息成功~",
+    "editMusicSheetInfo.toast.defaultSheetRenameFail": "默认歌单名称不可修改~",
     "dialog.loading.reinitializeTrackPlayer": "初始化播放器中...",
     "dialog.setCacheTitle": "设置缓存",
     "dialog.setCachePlaceholder": "输入缓存占用上限，100M-8192M，单位M",
