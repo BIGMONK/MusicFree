@@ -184,8 +184,9 @@ class MusicSheetClazz implements IInjectable {
         // 检查是否有默认歌单
         const defaultSheetIndex = sheets.findIndex(it => it.id === _defaultSheet.id);
         if (defaultSheetIndex === -1) {
+            const defaultSheet = this.getSheets().find(it => it.id === _defaultSheet.id);
             newSheets.unshift({
-                ..._defaultSheet,
+                ...(defaultSheet || _defaultSheet),
             });
         } else {
             // 确保默认歌单在第一位
