@@ -2,9 +2,11 @@ import React, { useMemo } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { ImgAsset } from "@/constants/assetsConst";
 import { useCurrentMusic } from "@/core/trackPlayer";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Background() {
     const musicItem = useCurrentMusic();
+    const insets = useSafeAreaInsets();
 
     const artworkSource = useMemo(() => {
         if (!musicItem?.artwork) {
@@ -22,8 +24,28 @@ export default function Background() {
 
     return (
         <>
-            <View style={style.background} />
-            <Image style={style.blur} blurRadius={50} source={artworkSource} />
+            <View style={[
+                style.background,
+                {
+                    top: -insets.top,
+                    bottom: -insets.bottom,
+                    left: -insets.left,
+                    right: -insets.right,
+                }
+            ]} />
+            <Image 
+                style={[
+                    style.blur,
+                    {
+                        top: -insets.top,
+                        bottom: -insets.bottom,
+                        left: -insets.left,
+                        right: -insets.right,
+                    }
+                ]} 
+                blurRadius={50} 
+                source={artworkSource} 
+            />
         </>
     );
 }
