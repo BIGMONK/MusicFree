@@ -3,13 +3,13 @@ import { StyleSheet, View } from "react-native";
 import Image from "./image";
 import useColors from "@/hooks/useColors";
 import Theme from "@/core/theme";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import useBackgroundInsets from "@/hooks/useBackgroundInsets";
 
 function PageBackground() {
     const theme = Theme.useTheme();
     const background = Theme.useBackground();
     const colors = useColors();
-    const insets = useSafeAreaInsets();
+    const backgroundInsets = useBackgroundInsets();
 
     return (
         <>
@@ -19,10 +19,7 @@ function PageBackground() {
                     {
                         backgroundColor:
                             colors?.pageBackground ?? colors.background,
-                        top: -insets.top,
-                        bottom: -insets.bottom,
-                        left: -insets.left,
-                        right: -insets.right,
+                        ...backgroundInsets,
                     },
                 ]}
             />
@@ -33,10 +30,7 @@ function PageBackground() {
                         style.wrapper,
                         {
                             opacity: background?.opacity ?? 0.6,
-                            top: -insets.top,
-                            bottom: -insets.bottom,
-                            left: -insets.left,
-                            right: -insets.right,
+                            ...backgroundInsets,
                         },
                     ]}
                     blurRadius={background?.blur ?? 20}
