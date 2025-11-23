@@ -23,10 +23,10 @@ class Telemetry implements IInjectable {
         "https://cdn.jsdelivr.net/gh/maotoumao/MusicFree@master/release/telemetry.json",
     ];
 
-    private static sessionId = nanoid();
+    private static debugId = nanoid();
 
-    get sessionId() {
-        return Telemetry.sessionId;
+    get debugId() {
+        return Telemetry.debugId;
     }
 
     async setup() {
@@ -92,7 +92,7 @@ class Telemetry implements IInjectable {
             name,
             average,
             properties: {
-                sessionId: Telemetry.sessionId,
+                debugId: Telemetry.debugId,
                 appVersion: DeviceInfo.getVersion(),
                 ...(properties || {}),
             },
@@ -106,7 +106,7 @@ class Telemetry implements IInjectable {
         this.appInsights?.trackEvent({
             name,
             properties: {
-                sessionId: Telemetry.sessionId,
+                debugId: Telemetry.debugId,
                 appVersion: DeviceInfo.getVersion(),
                 ...(properties || {}),
             },
@@ -120,7 +120,7 @@ class Telemetry implements IInjectable {
         this.appInsights?.trackException({
             exception: error,
             properties: {
-                sessionId: Telemetry.sessionId,
+                debugId: Telemetry.debugId,
                 appVersion: DeviceInfo.getVersion(),
                 ...(properties || {}),
             },

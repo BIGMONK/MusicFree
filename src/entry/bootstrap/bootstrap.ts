@@ -345,6 +345,7 @@ function bindEvents() {
 export default async function () {
     try {
         const startTime = Date.now();
+        telemetry.logEvent("App.Bootstrap.Start");
         getDefaultStore().set(bootstrapAtom, {
             "state": "Loading",
         });
@@ -355,10 +356,11 @@ export default async function () {
         });
         telemetry.logEvent("App.Bootstrap.Completed", {
             d: Date.now() - startTime,
-            pluginN: PluginManager.getPluginsCount(),
+            pluginCount: PluginManager.getPluginsCount(),
         });
     } catch (e: any) {
         errorLog("初始化出错", e);
+        telemetry.logException(e);
         if (getDefaultStore().get(bootstrapAtom).state === "Loading") {
             getDefaultStore().set(bootstrapAtom, {
                 state: "Fatal",
@@ -367,6 +369,5 @@ export default async function () {
         }
     }
     // 隐藏开屏动画
-    console.log("HIDE");
     await SplashScreen.hideAsync();
 }

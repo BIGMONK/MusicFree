@@ -81,7 +81,7 @@ function DeviceInfoSection({ colors }: DeviceInfoProps) {
                 </View>
                 <View style={styles.deviceInfoRow}>
                     <Text style={[styles.deviceInfoLabel, { color: colors.textSecondary }]}>DebugID:</Text>
-                    <Text style={[styles.deviceInfoValue, { color: colors.text }]}>{telemetry.sessionId}</Text>
+                    <Text style={[styles.deviceInfoValue, { color: colors.text }]}>{telemetry.debugId}</Text>
                 </View>
             </View>
         </View>
