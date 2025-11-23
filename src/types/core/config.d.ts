@@ -67,6 +67,7 @@ export interface IAppConfigProperties {
     "debug.errorLog": boolean;
     "debug.traceLog": boolean;
     "debug.devLog": boolean;
+    "debug.disableTelemetry": boolean;
 }
 
 export type AppConfigPropertyKey = keyof IAppConfigProperties;

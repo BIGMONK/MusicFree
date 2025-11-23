@@ -365,6 +365,7 @@ export interface ILanguageData {
     "basicSettings.developer.devLog": string; // 调试面板
     "basicSettings.developer.viewErrorLog": string; // 查看错误日志
     "basicSettings.developer.clearLog": string; // 清空日志
+    "basicSettings.developer.disableTelemetry": string; // 禁止自动上报性能和异常信息
 
     // 编辑歌单信息弹窗
     "editMusicSheetInfo.title": string; // 编辑歌单信息
@@ -401,6 +402,7 @@ export interface ILanguageData {
     "toast.logCleared": string; // 日志已清空
     "toast.noFloatWindowPermission": string; // 无悬浮窗权限
     "toast.folderNotExistOrNoPermission": string; // 文件夹不存在或无权限
+    "toast.telemetryNotAvailable": string; // 自动上报性能、异常信息功能暂不可用
     
     // 音质相关
     "musicQuality.low": string; // 低音质
