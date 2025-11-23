@@ -516,11 +516,6 @@ export default function BasicSetting() {
             title: t("basicSettings.developer"),
             data: [
                 createSwitch(
-                    t("basicSettings.developer.errorLog"),
-                    "debug.errorLog",
-                    debugEnableErrorLog ?? false,
-                ),
-                createSwitch(
                     t("basicSettings.developer.disableTelemetry"),
                     "debug.disableTelemetry",
                     telemetryAvailable ? (disableTelemetry ?? false) : false,
@@ -531,6 +526,11 @@ export default function BasicSetting() {
                         }
                         Config.setConfig("debug.disableTelemetry", newVal);
                     }
+                ),
+                createSwitch(
+                    t("basicSettings.developer.errorLog"),
+                    "debug.errorLog",
+                    debugEnableErrorLog ?? false,
                 ),
                 createSwitch(
                     t("basicSettings.developer.traceLog"),
