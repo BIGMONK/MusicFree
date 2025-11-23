@@ -39,9 +39,6 @@ export default function Pages() {
                 <SafeAreaProvider>
                     <NavigationContainer 
                         theme={theme}
-                        onStateChange={state => {
-                            console.log("Navigation State Changed:", state);
-                        }}
                     >
                         <PageBackground />
                         <Stack.Navigator

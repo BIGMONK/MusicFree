@@ -257,6 +257,7 @@ async function extraMakeup() {
     } catch { }
 
     async function handleLinkingUrl(url: string) {
+        console.log("处理链接: ", url);
         // 插件
         try {
             if (url.startsWith("musicfree://install/")) {
@@ -296,11 +297,21 @@ async function extraMakeup() {
                 if (musicItem) {
                     TrackPlayer.play(musicItem);
                 }
+            } else if (url.startsWith("content://")) {
+                // 本地播放 (Android)
+                const musicItem = await PluginManager.getByHash(
+                    localPluginHash,
+                )?.instance?.importMusicItem?.(url);
+                console.log(musicItem);
+                if (musicItem) {
+                    TrackPlayer.play(musicItem);
+                }
             }
         } catch { }
     }
 
     // 开启监听
+    Linking.removeAllListeners("url");
     Linking.addEventListener("url", data => {
         if (data.url) {
             handleLinkingUrl(data.url);
