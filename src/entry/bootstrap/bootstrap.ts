@@ -149,11 +149,9 @@ async function bootstrapImpl() {
         errorLog("未捕获的错误", error);
     });
 
-    // 记录详细时间
-    telemetry.logMetric("Bootstrap.MainTrace", Date.now() - bootstrapTimestamp.Start, {
-        t: bootstrapTimestamp,
-        m: bootstrapMetrics,
-    });
+
+    // metrics属性
+    telemetry.logMetric("Bootstrap.MainTrace", Date.now() - bootstrapTimestamp.Start, bootstrapMetrics);
 }
 
 /** 初始化 */
@@ -233,10 +231,7 @@ export async function initTrackPlayer() {
     playerTimestamp.LyricManagerSetup = Date.now();
     playerMetrics.LyricManagerSetup = playerTimestamp.LyricManagerSetup - playerTimestamp.PlayerSetup;
 
-    telemetry.logMetric("Bootstrap.TrackPlayerTrace", Date.now() - playerTimestamp.Start, {
-        t: playerTimestamp,
-        m: playerMetrics,
-    });
+    telemetry.logMetric("Bootstrap.TrackPlayerTrace", Date.now() - playerTimestamp.Start, playerMetrics);
 }
 
 
