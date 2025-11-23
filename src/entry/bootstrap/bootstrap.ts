@@ -257,7 +257,6 @@ async function extraMakeup() {
     } catch { }
 
     async function handleLinkingUrl(url: string) {
-        console.log("处理链接: ", url);
         // 插件
         try {
             if (url.startsWith("musicfree://install/")) {

@@ -1085,8 +1085,10 @@ const localFilePluginDefine: IPlugin.IPluginDefine = {
                 CryptoJs.MD5(fileStat.originalFilepath).toString(
                     CryptoJs.enc.Hex,
                 ) || nanoid();
-        } catch {
-            id = nanoid();
+        } catch(e) {
+            id = CryptoJs.MD5(urlLike).toString(
+                CryptoJs.enc.Hex,
+            ) || nanoid();
         }
 
         return {
