@@ -119,6 +119,8 @@ export interface ILanguageData {
     "permissionSetting.floatWindowPermissionDescription": string; // 悬浮窗权限说明
     "permissionSetting.fileReadWritePermission": string; // 文件读写权限
     "permissionSetting.fileReadWritePermissionDescription": string; // 文件读写权限说明
+    "permissionSetting.ignoreBatteryOptimization": string; // 忽略电池优化
+    "permissionSetting.ignoreBatteryOptimizationDescription": string; // 忽略电池优化说明
 
     // 推荐歌单相关
     "recommendSheet.title": string; // 推荐歌单
