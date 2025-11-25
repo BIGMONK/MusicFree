@@ -9225,15 +9225,6 @@ recyclerlistview@4.2.1:
     prop-types "15.8.1"
     ts-object-utils "0.0.5"
 
-recyclerlistview@^4.2.3:
-  version "4.2.3"
-  resolved "https://registry.npmmirror.com/recyclerlistview/-/recyclerlistview-4.2.3.tgz#14032e7ad2f24396e24d5b3060c6ba76b567f000"
-  integrity sha512-STR/wj/FyT8EMsBzzhZ1l2goYirMkIgfV3gYEPxI3Kf3lOnu6f7Dryhyw7/IkQrgX5xtTcDrZMqytvteH9rL3g==
-  dependencies:
-    lodash.debounce "4.0.8"
-    prop-types "15.8.1"
-    ts-object-utils "0.0.5"
-
 reflect.getprototypeof@^1.0.6, reflect.getprototypeof@^1.0.9:
   version "1.0.10"
   resolved "https://registry.npmmirror.com/reflect.getprototypeof/-/reflect.getprototypeof-1.0.10.tgz#c629219e78a3316d8b604c765ef68996964e7bf9"
