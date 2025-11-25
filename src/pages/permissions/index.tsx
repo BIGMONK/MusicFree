@@ -41,6 +41,14 @@ export default function Permissions() {
         setPermissions(prev => ({ ...prev, ...updates }));
     }, []);
 
+    const toggleBatteryOptimization = useCallback(() => {
+        if (permissions.batteryOptimization) {
+            NativeUtils.openBatteryOptimizationSettings();
+        } else {
+            NativeUtils.requestIgnoreBatteryOptimizations();
+        }
+    }, [permissions.batteryOptimization]);
+
     useEffect(() => {
         checkPermission();
         const subscription = AppState.addEventListener(
@@ -79,7 +87,12 @@ export default function Permissions() {
                     title={t("permissionSetting.floatWindowPermission")}
                     description={t("permissionSetting.floatWindowPermissionDescription")}
                 />
-                <ThemeSwitch value={permissions.floatingWindow} />
+                <ThemeSwitch
+                    value={permissions.floatingWindow}
+                    onValueChange={() => {
+                        LyricUtil.requestSystemAlertPermission();
+                    }}
+                />
             </ListItem>
             <ListItem
                 withHorizontalPadding
@@ -91,19 +104,25 @@ export default function Permissions() {
                     title={t("permissionSetting.fileReadWritePermission")}
                     description={t("permissionSetting.fileReadWritePermissionDescription")}
                 />
-                <ThemeSwitch value={permissions.fileStorage} />
+                <ThemeSwitch
+                    value={permissions.fileStorage}
+                    onValueChange={() => {
+                        NativeUtils.requestStoragePermission();
+                    }}
+                />
             </ListItem>
             <ListItem
                 withHorizontalPadding
                 heightType="big"
-                onPress={() => {
-                    NativeUtils.requestIgnoreBatteryOptimizations();
-                }}>
+                onPress={toggleBatteryOptimization}>
                 <ListItem.Content
                     title={t("permissionSetting.ignoreBatteryOptimization")}
                     description={t("permissionSetting.ignoreBatteryOptimizationDescription")}
                 />
-                <ThemeSwitch value={permissions.batteryOptimization} />
+                <ThemeSwitch
+                    value={permissions.batteryOptimization}
+                    onValueChange={toggleBatteryOptimization}
+                />
             </ListItem>
         </VerticalSafeAreaView>
     );

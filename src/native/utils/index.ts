@@ -7,6 +7,7 @@ interface INativeUtils extends NativeModule {
     getWindowDimensions: () => { width: number, height: number }; // Fix bug: https://github.com/facebook/react-native/issues/47080
     isIgnoringBatteryOptimizations: () => Promise<boolean>;
     requestIgnoreBatteryOptimizations: () => Promise<boolean>;
+    openBatteryOptimizationSettings: () => Promise<boolean>;
 }
 
 const NativeUtils = NativeModules.NativeUtils;

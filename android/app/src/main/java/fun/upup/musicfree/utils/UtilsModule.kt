@@ -98,6 +98,26 @@ class UtilsModule(context: ReactApplicationContext) : ReactContextBaseJavaModule
         }
     }
 
+    @ReactMethod
+    fun openBatteryOptimizationSettings(promise: Promise) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            try {
+                val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
+                if (reactContext.currentActivity != null) {
+                    reactContext.currentActivity?.startActivity(intent)
+                } else {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    reactContext.startActivity(intent)
+                }
+                promise.resolve(true)
+            } catch (e: Exception) {
+                promise.reject(e)
+            }
+        } else {
+            promise.resolve(true)
+        }
+    }
+
     @ReactMethod(isBlockingSynchronousMethod = true)
     fun getWindowDimensions(): WritableMap {
         val windowManager = reactApplicationContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager

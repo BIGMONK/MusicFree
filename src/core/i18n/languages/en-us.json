@@ -92,7 +92,7 @@
     "permissionSetting.fileReadWritePermission": "File Read/Write Permission",
     "permissionSetting.fileReadWritePermissionDescription": "Used to download songs and cache data",
     "permissionSetting.ignoreBatteryOptimization": "Ignore Battery Optimization",
-    "permissionSetting.ignoreBatteryOptimizationDescription": "Used to play music and download songs in background",
+    "permissionSetting.ignoreBatteryOptimizationDescription": "Prevent the app from being force closed by the system during background playback",
     "recommendSheet.title": "Recommended",
     "searchMusicList.searchPlaceHolder": "Search songs in list",
     "searchMusicList.searchLabel.a11y": "Search Box",
