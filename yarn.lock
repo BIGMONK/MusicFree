@@ -5498,6 +5498,11 @@ expo-haptics@~14.0.1:
   resolved "https://registry.npmmirror.com/expo-haptics/-/expo-haptics-14.0.1.tgz#ff4ead605e33f1917e615c9328af7ac1c34892dc"
   integrity sha512-V81FZ7xRUfqM6uSI6FA1KnZ+QpEKnISqafob/xEfcx1ymwhm4V3snuLWWFjmAz+XaZQTqlYa8z3QbqEXz7G63w==
 
+expo-image@~2.0.7:
+  version "2.0.7"
+  resolved "https://registry.npmmirror.com/expo-image/-/expo-image-2.0.7.tgz#087ca651e3dcd2e92efdda11a6c9e3ad6fddc127"
+  integrity sha512-kv40OIJOkItwznhdqFmKxTMC5O8GkpyTf8ng7Py4Hy6IBiH59dkeP6vUZQhzPhJOm5v1kZK4XldbskBosqzOug==
+
 expo-keep-awake@~14.0.1, expo-keep-awake@~14.0.3:
   version "14.0.3"
   resolved "https://registry.npmmirror.com/expo-keep-awake/-/expo-keep-awake-14.0.3.tgz#74c91b68effdb6969bc1e8371621aad90386cfbf"
@@ -8938,11 +8943,6 @@ react-native-device-info@^14.1.1:
   version "14.1.1"
   resolved "https://registry.npmmirror.com/react-native-device-info/-/react-native-device-info-14.1.1.tgz#f50c03902f87e4a99b1c51ed85163b795f02b3ea"
   integrity sha512-lXFpe6DJmzbQXNLWxlMHP2xuTU5gwrKAvI8dCAZuERhW9eOXSubOQIesk9lIBnsi9pI19GMrcpJEvs4ARPRYmw==
-
-react-native-fast-image@^8.6.3:
-  version "8.6.3"
-  resolved "https://registry.npmmirror.com/react-native-fast-image/-/react-native-fast-image-8.6.3.tgz#6edc3f9190092a909d636d93eecbcc54a8822255"
-  integrity sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg==
 
 react-native-fs@^2.20.0:
   version "2.20.0"
