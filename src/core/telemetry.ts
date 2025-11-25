@@ -42,6 +42,10 @@ class Telemetry implements IInjectable {
             this.appInsights.loadAppInsights();
         }
 
+        if (__DEV__) {
+            // 开发模式不启用性能服务检测
+            return;
+        }
         // 延迟20秒后检查，先让出主线程
         delay(20000, true).then(async () => {
             const telemetryCheckTimestamp = appMeta.telemetryCheckTimestamp;
@@ -66,6 +70,10 @@ class Telemetry implements IInjectable {
     }
 
     private checkTelemetryEnabled(withUserPerference: boolean = true): boolean {
+        if (__DEV__) {
+            return false;
+        }
+        
         if (!this.appInsights) {
             return false;
         }
